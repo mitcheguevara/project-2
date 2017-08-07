@@ -2,3 +2,22 @@
 
 <%= link_to 'Edit', edit_owner_path(@owner) %> |
 <%= link_to 'Back', owners_path %>
+
+
+<%= link_to "Back To All Owners", houses_path %>
+ <h2><%= @owner.name %></h2>
+ <h5><%= @owner.neighborhood %></h5>
+ <%= link_to "Edit/Remove", edit_owner_path(@owner) %>
+
+ <p><%= @owner.dog_name %></p>
+
+
+ <img src="<%= @owner.banner_img %>">
+
+ <h3>pets</h3>
+ <%= link_to "Add New Pet, Why Not?", new_owner_dog_path(@owner) %>
+ <ol>
+   <% @owner.dogs.each do |h| %>
+     <li><a href="<%= owner_dog_path("#{h.owner_id}", "#{h.id}") %>"><%= h.name %></a></li>
+   <% end %>
+ </ol>
