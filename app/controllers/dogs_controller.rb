@@ -10,15 +10,20 @@ class DogsController < ApplicationController
   # GET /dogs/1
   # GET /dogs/1.json
   def show
+    @dog = Dog.find(params[:id])
+
   end
 
   # GET /dogs/new
   def new
+    @dog = Dog.find(params[:owner_id])
     @dog = Dog.new
   end
 
   # GET /dogs/1/edit
   def edit
+    @owner = Owner.find(params[:owner_id])
+     @dog = Dog.find(params[:id])
   end
 
   # POST /dogs
@@ -29,10 +34,8 @@ class DogsController < ApplicationController
     respond_to do |format|
       if @dog.save
         format.html { redirect_to @dog, notice: 'Dog was successfully created.' }
-        format.json { render :show, status: :created, location: @dog }
       else
         format.html { render :new }
-        format.json { render json: @dog.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -43,10 +46,8 @@ class DogsController < ApplicationController
     respond_to do |format|
       if @dog.update(dog_params)
         format.html { redirect_to @dog, notice: 'Dog was successfully updated.' }
-        format.json { render :show, status: :ok, location: @dog }
       else
         format.html { render :edit }
-        format.json { render json: @dog.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -57,7 +58,6 @@ class DogsController < ApplicationController
     @dog.destroy
     respond_to do |format|
       format.html { redirect_to dogs_url, notice: 'Dog was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

@@ -1,2 +1,0 @@
-class Playdate < ApplicationRecord
-end

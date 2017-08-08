@@ -23,3 +23,18 @@
 <br>
 
 <%= link_to 'New Dog', new_dog_path %>
+
+<div class="bannerbox">
+
+
+
+   <% @dogs.each do |h| %>
+     <div class="banners">
+      <h3><a href="/dogs/<%= h.id %>"><%= h.name %></a></h3>
+     <%= image_tag h.dog_img %>
+     </div>
+   <% end %>
+
+
+
+</div>

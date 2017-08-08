@@ -4,7 +4,7 @@
 <%= link_to 'Back', owners_path %>
 
 
-<%= link_to "Back To All Owners", houses_path %>
+<%= link_to "Back To All Owners", owners_path %>
  <h2><%= @owner.name %></h2>
  <h5><%= @owner.neighborhood %></h5>
  <%= link_to "Edit/Remove", edit_owner_path(@owner) %>
@@ -12,7 +12,7 @@
  <p><%= @owner.dog_name %></p>
 
 
- <img src="<%= @owner.banner_img %>">
+ <img src="<%= @owner.owner_img %>">
 
  <h3>pets</h3>
  <%= link_to "Add New Pet, Why Not?", new_owner_dog_path(@owner) %>

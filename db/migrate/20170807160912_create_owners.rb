@@ -4,7 +4,7 @@ class CreateOwners < ActiveRecord::Migration[5.1]
       t.string :name, null: false
       t.string :neighborhood
       t.string :dog_name
-      t.string :banner_img
+      t.string :owner_img
     end
   end
 end

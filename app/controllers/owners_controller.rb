@@ -64,5 +64,7 @@ class OwnersController < ApplicationController
     def set_owner
       @owner = Owner.find(params[:id])
     end
-
+    def owner_params
+      params.fetch(:owner, {})
+    end
 end
