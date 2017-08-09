@@ -1,23 +1,22 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_owner_path(@owner) %> |
-<%= link_to 'Back', owners_path %>
-
-
 <%= link_to "Back To All Owners", owners_path %>
  <h2><%= @owner.name %></h2>
- <h5><%= @owner.neighborhood %></h5>
+ <h5><%= @owner.dog_name %></h5>
  <%= link_to "Edit/Remove", edit_owner_path(@owner) %>
 
- <p><%= @owner.dog_name %></p>
-
+ <p><%= @owner.name %></p>
+ <p><%= @owner.neighborhood %></p>
 
  <img src="<%= @owner.owner_img %>">
 
- <h3>pets</h3>
- <%= link_to "Add New Pet, Why Not?", new_owner_dog_path(@owner) %>
- <ol>
+ <h3>Members</h3>
+ <%= link_to "Add New Dog", new_owner_dog_path(@owner) %>
+ <li>
    <% @owner.dogs.each do |h| %>
      <li><a href="<%= owner_dog_path("#{h.owner_id}", "#{h.id}") %>"><%= h.name %></a></li>
    <% end %>
- </ol>
+ </li>
+ <li>
+   <% @owner.events.each do |h| %>
+     <li><a href="<%= owner_events_path("#{h.owner_id}", "#{h.id}") %>"><%= h.name %></a></li>
+   <% end %>
+ </li>

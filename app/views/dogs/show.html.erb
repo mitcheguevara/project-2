@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<h2> <%= @dog.name %> </h2>
+ <img src="<%= @dog.dog_img %>">
 
-<%= link_to 'Edit', edit_owner_path(@dog) %> |
-<%= link_to 'Back', dogs_path %>
+<%= link_to "Back to #{@dog.owner.name}", owner_path(@dog.owner_id) %>
+
+<%= link_to "Edit/Delete", edit_owner_dog_path(@dog.owner_id, @dog) %>

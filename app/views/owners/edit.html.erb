@@ -1,6 +1,22 @@
-<h1>Editing Owner</h1>
+<h2>Edit/Delete Owner</h2>
+ <h5>'Things Change We Get It.'</h5>
 
-<%= render 'form', owner: @owner %>
+ <%= form_for @owner, method: :put do |f| %>
+   <%= f.label :name %>
+   <%= f.text_field :name %>
+   <br>
+   <%= f.label :dog_name %>
+   <%= f.text_field :dog_name %>
+   <br>
+   <%= f.label :neighborhood %>
+   <%= f.text_field :neighborhood %>
+   <br>
+   <%= f.label :owner_img %>
+   <%= f.text_field :owner_img %>
+   <br>
+   <%= f.submit "Welcome Back" %> <%= link_to "Cancel", owner_path(@owner) %>
+ <% end %>
 
-<%= link_to 'Show', @owner %> |
-<%= link_to 'Back', owners_path %>
+ <%= form_for @owner, method: :delete do |f| %>
+   <%= f.submit "Remove Owner" %>
+ <% end %>

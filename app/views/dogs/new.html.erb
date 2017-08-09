@@ -1,5 +1,21 @@
-<h1>New Dog</h1>
+<h2> <%= @owner.name %> grows... </h2>
 
-<%= render 'form', dog: @dog %>
+ <%= link_to "Back To Dogs", owner_path(@owner) %>
 
-<%= link_to 'Back', dogs_path %>
+ <%= form_for [@owner, @dog] do |f| %>
+   <%= f.label :name %>
+   <%= f.text_field :name %>
+   <br>
+   <%= f.label :breed %>
+   <%= f.text_field :breed %>
+   <br>
+   <%= f.label :likes_dogs %>
+   <%= f.text_field :likes_dogs %>
+   <br>
+   <%= f.label :dog_img %>
+   <%= f.text_field :dog_img %>
+   <br>
+
+   <br>
+   <%= f.submit "Welcome to the Family" %>
+   <% end %>

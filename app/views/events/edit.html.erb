@@ -1,6 +1,19 @@
-<h1>Editing Event</h1>
+<h2><%= @event.name %></h2>
 
-<%= render 'form', event: @event %>
+ <%= form_for [@owner, @event] do |f| %>
+   <%= f.label :name %>
+   <%= f.text_field :name %>
+   <br>
+   <%= f.label :quote %>
+   <%= f.text_field :quote %>
+   <br>
+   <%= f.label :title %>
+   <%= f.text_field :title %>
+   <br>
+   <%= f.submit "Update" %> <%= link_to "Cancel", owner_event_path(@owner, @event) %>
+ <% end %>
 
-<%= link_to 'Show', @event %> |
-<%= link_to 'Back', events_path %>
+
+
+<%= link_to 'He who cast the sentence, should swing the sword', owner_event_path(@owner, @dog),
+            data: {:confirm => 'Any Final Words My Lord?'}, :method => :delete %>

@@ -1,70 +1,46 @@
 class OwnersController < ApplicationController
-  before_action :set_owner, only: [:show, :edit, :update, :destroy]
 
-  # GET /owners
-  # GET /owners.json
-  def index
-    @owners = Owner.all
-  end
+   def index
+     @owners = Owner.all
+   end
 
-  # GET /owners/1
-  # GET /owners/1.json
-  def show
-    @owners = Owner.find(params[:id])
-  end
-
-  # GET /owners/new
-  def new
-    @owner = Owner.new
-  end
-
-  # GET /owners/1/edit
-  def edit
+   def show
      @owner = Owner.find(params[:id])
-  end
+   end
 
-  # POST /owners
-  # POST /owners.json
-  def create
-    @owner = Owner.new(owner_params)
+   def new
+     @owner = Owner.new
+   end
 
-    respond_to do |format|
-      if @owner.save
-        format.html { redirect_to @owner, notice: 'Owner was successfully created.' }
-      else
-        format.html { render :new }
-      end
-    end
-  end
+   def create
+     @owner = Owner.create!(owner_params)
+     flash[:notice] = " Welcome to the game#{@owner.name}!"
 
-  # PATCH/PUT /owners/1
-  # PATCH/PUT /owners/1.json
-  def update
-    respond_to do |format|
-      if @owner.update(owner_params)
-        format.html { redirect_to @owner, notice: 'Owner was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
-    end
-  end
+     redirect_to owner_path(@owner)
+   end
 
-  # DELETE /owners/1
-  # DELETE /owners/1.json
-  def destroy
-    @owner = Owner.find(params[:id])
-    @owner.destroy
-    respond_to do |format|
-      format.html { redirect_to owners_url, notice: 'Owner was successfully destroyed.' }
-    end
-  end
+   def edit
+     @owner = Owner.find(params[:id])
+   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_owner
-      @owner = Owner.find(params[:id])
-    end
-    def owner_params
-      params.fetch(:owner, {})
-    end
-end
+   def update
+     @owner = Owner.find(params[:id])
+     @owner.update!(owner_params)
+     flash[:notice] = "Will this change win you the throne? #{@owner.name}!"
+
+     redirect_to owner_path(@owner)
+   end
+
+   def destroy
+     @owner = Owner.find(params[:id])
+     @owner.destroy!
+
+     redirect_to owners_path
+   end
+
+ private
+   def owner_params
+     params.require(:owner).permit(:name, :pet_name, :neighborhood, :owner_img)
+   end
+
+ end

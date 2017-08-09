@@ -1,73 +1,48 @@
-class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+class EventssController < ApplicationController
 
-  # GET /events
-  # GET /events.json
-  def index
-    @events = Event.all
-  end
-
-  # GET /events/1
-  # GET /events/1.json
-  def show
-  end
-
-  # GET /events/new
-  def new
-    @event = Event.new
-  end
-
-  # GET /events/1/edit
-  def edit
-    @owner = Owner.find(params[:owner_id])
+   def show
      @event = Event.find(params[:id])
-  end
+   end
 
-  # POST /events
-  # POST /events.json
-  def create
-    @event = Event.new(event_params)
+   def edit
+     @owner = Owner.find(params[:owner_id])
+     @event = Event.find(params[:id])
+   end
 
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-      else
-        format.html { render :new }
-      end
-    end
-  end
+   def update
+     @owner = Owner.find(params[:owner_id])
+     @event = Event.find(params[:id])
+     @event.update!(dog_params)
+     flash[:notice] = "#{@event.name} thats a great addition"
 
-  # PATCH/PUT /events/1
-  # PATCH/PUT /events/1.json
-  def update
-    respond_to do |format|
-      if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
-    end
-  end
+     redirect_to owner_event_path(@owner, @event)
+   end
 
-  # DELETE /events/1
-  # DELETE /events/1.json
-  def destroy
-    @event = Owner.find(params[:owner_id])
-    @event = Event.find(params[:id])
-    @event.destroy
-    respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
-    end
-  end
+   def new
+     @owner = Owner.find(params[:owner_id])
+     @event = Event.new
+   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_event
-      @event = Event.find(params[:id])
-    end
+   def create
+     @owner = Owner.find(params[:owner_id])
+     @event = @owner.eventss.create(event_params)
+     flash[:notice] = "#{@event.name} welcome."
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def event_params
-      params.fetch(:event, {})
-    end
-end
+     redirect_to owner_path(@owner)
+   end
+
+   def destroy
+     @owner = Owner.find(params[:owner_id])
+     @event = Event.find(params[:id])
+     @event.destroy!
+     flash[:notice] = "#{@event.name} Off with his head."
+
+     redirect_to owner_event_path(@owner, @event)
+   end
+
+ private
+   def event_params
+     params.require(:dog).permit(:name, :location, :event_url)
+   end
+
+ end

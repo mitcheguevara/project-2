@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<h2> <%= @event.name %> </h2>
+<h5><%= @event.quote %></h5>
+<%= link_to "Back to #{@dog.owner.name}", owner_path(@event.owner_id) %>
+<p><%= @event.title %></p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<%= link_to "Edit/Delete", edit_owner_event_path(@event.owner_id, @event) %>

@@ -1,5 +1,18 @@
-<h1>New Owner</h1>
+<h2>Make New Owner</h2>
+ <h5>'Break faith? Your father burned my grandfather alive!'</h5>
 
-<%= render 'form', owner: @owner %>
-
-<%= link_to 'Back', owners_path %>
+ <%= form_for @owner do |f| %>
+   <%= f.label :name %>
+   <%= f.text_field :name %>
+   <br>
+   <%= f.label :dog_name %>
+   <%= f.text_field :dog_name %>
+   <br>
+   <%= f.label :neighborhood %>
+   <%= f.text_field :neighborhood %>
+   <br>
+   <%= f.label :owner_img %>
+   <%= f.text_field :owner_img %>
+   <br>
+   <%= f.submit "Welcome to puppyplaydate" %>
+ <% end %>

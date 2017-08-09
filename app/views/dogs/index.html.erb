@@ -1,37 +1,15 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Dogs</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @dogs.each do |dog| %>
-      <tr>
-        <td><%= link_to 'Show', dog %></td>
-        <td><%= link_to 'Edit', edit_dog_path(dog) %></td>
-        <td><%= link_to 'Destroy', dog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Dog', new_dog_path %>
+<h2>Dog Overview</h2>
+ <%= link_to "Create New Dog", new_owner_dog_path %>
+ <img src="<%= @dog.dog_img %>">
 
 <div class="bannerbox">
 
 
 
-   <% @dogs.each do |h| %>
+   <% @owners.each do |h| %>
      <div class="banners">
       <h3><a href="/dogs/<%= h.id %>"><%= h.name %></a></h3>
-     <%= image_tag h.dog_img %>
+     <img src="<%= h.banner_img %>"/>
      </div>
    <% end %>
 

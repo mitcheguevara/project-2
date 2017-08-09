@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170808135206) do
+ActiveRecord::Schema.define(version: 20170809133123) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,9 @@ ActiveRecord::Schema.define(version: 20170808135206) do
     t.string "breed"
     t.boolean "likes_dogs"
     t.string "dog_img"
+    t.bigint "dogs_id"
     t.bigint "owner_id"
+    t.index ["dogs_id"], name: "index_dogs_on_dogs_id"
     t.index ["owner_id"], name: "index_dogs_on_owner_id"
   end
 
@@ -28,7 +30,9 @@ ActiveRecord::Schema.define(version: 20170808135206) do
     t.string "name", null: false
     t.string "location"
     t.string "event_img"
+    t.bigint "events_id"
     t.bigint "owner_id"
+    t.index ["events_id"], name: "index_events_on_events_id"
     t.index ["owner_id"], name: "index_events_on_owner_id"
   end
 
@@ -39,6 +43,8 @@ ActiveRecord::Schema.define(version: 20170808135206) do
     t.string "owner_img"
   end
 
+  add_foreign_key "dogs", "dogs", column: "dogs_id"
   add_foreign_key "dogs", "owners"
+  add_foreign_key "events", "events", column: "events_id"
   add_foreign_key "events", "owners"
 end

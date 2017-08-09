@@ -1,6 +1,22 @@
-<h1>Editing Dog</h1>
+<h2><%= @dog.name %></h2>
 
-<%= render 'form', dog: @dog %>
+ <%= form_for [@owner, @dog] do |f| %>
+ <%= f.label :name %>
+ <%= f.text_field :name %>
+ <br>
+ <%= f.label :breed %>
+ <%= f.text_field :breed %>
+ <br>
+ <%= f.label :likes_dogs %>
+ <%= f.text_field :likes_dogs %>
+ <br>
+ <%= f.label :dog_img %>
+ <%= f.text_field :dog_img %>
+ <br>
+   <%= f.submit "Update" %> <%= link_to "Cancel", owner_dog_path(@owner, @dog) %>
+ <% end %>
 
-<%= link_to 'Show', @dog %> |
-<%= link_to 'Back', dogs_path %>
+
+
+<%= link_to 'He who cast the sentence, should swing the sword', owner_dog_path(@owner, @dog),
+            data: {:confirm => 'Any Final Words My Lord?'}, :method => :delete %>

@@ -1,5 +1,18 @@
-<h1>New Event</h1>
+<h2> <%= @owner.name %> grows... </h2>
 
-<%= render 'form', event: @event %>
+ <%= link_to "Back To Dogs", owner_path(@owner) %>
 
-<%= link_to 'Back', events_path %>
+ <%= form_for [@owner, @event] do |f| %>
+   <%= f.label :name %>
+   <%= f.text_field :name %>
+   <br>
+   <%= f.label :title %>
+   <%= f.text_field :title %>
+   <br>
+   <%= f.label :quote %>
+   <%= f.text_field :quote %>
+   <br>
+
+   <br>
+   <%= f.submit "Welcome to the Family" %>
+   <% end %>
