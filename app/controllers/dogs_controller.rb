@@ -1,7 +1,20 @@
 class DogsController < ApplicationController
+  def new
+    @owner = Owner.find(params[:owner_id])
+    @dog = Dog.new
+  end
+
+  def create
+    @owner = Owner.find(params[:owner_id])
+    @dog = @owner.dogs.create!(dog_params)
+    flash[:notice] = "#{@dog.name} welcome."
+
+    redirect_to owner_path(@owner)
+  end
 
    def show
      @dog = Dog.find(params[:id])
+     @attendances = @dog.attendances
    end
 
    def edit
@@ -18,18 +31,7 @@ class DogsController < ApplicationController
      redirect_to owner_dog_path(@owner, @dog)
    end
 
-   def new
-     @owner = Owner.find(params[:owner_id])
-     @dog = Dog.new
-   end
 
-   def create
-     @owner = Owner.find(params[:owner_id])
-     @dog = @owner.dogs.create!(dog_params)
-     flash[:notice] = "#{@dog.name} welcome."
-
-     redirect_to owner_path(@owner)
-   end
 
    def destroy
      @owner = Owner.find(params[:owner_id])

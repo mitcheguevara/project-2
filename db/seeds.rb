@@ -21,6 +21,12 @@ Dog.destroy_all
    dog_name: 'Loki',
    owner_img: 'https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/11207319_997314935755_7190451148103219541_n.jpg?oh=32b00728d4f9596000dad68e66d094ea&oe=59EF978B'
  })
+ dani = Owner.create({
+   name: 'Dani Moreno',
+   neighborhood: 'Pentworth',
+   dog_name: 'Chula',
+   owner_img: 'https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/12924359_10209323876357367_1729522542460132699_n.jpg?oh=2642812dbce37dbb75770c2b13865bad&oe=5A297E43'
+ })
 
  mata = mitche.dogs.create({
    name: 'Mata',
@@ -29,11 +35,17 @@ Dog.destroy_all
    dog_img: 'https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/13265913_10101012399130875_672014894933615452_n.jpg?oh=1db62b08a97fad37e526277de841ef0b&oe=5A367913'
  })
 
- mata = mitche.dogs.create({
+ loki = dan.dogs.create({
    name: 'Loki',
    breed: 'Lab',
-   likes_dogs: false,
+   likes_dogs: true,
    dog_img: 'https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/13501864_10101043866539935_2537040839797078271_n.jpg?oh=aa34329167f3ba39a48a83e2b7b51e6e&oe=59EFD855'
+ })
+ chula = dani.dogs.create({
+   name: 'Chula',
+   breed: 'Lab',
+   likes_dogs: true,
+   dog_img: 'https://vetstreet.brightspotcdn.com/dims4/default/514331d/2147483647/thumbnail/645x380/quality/90/?url=https%3A%2F%2Fvetstreet-brightspot.s3.amazonaws.com%2F26%2F0d%2F6443c92b4c67ae315a8bb8be16e1%2FChihuahua-AP-KIDP62-645lc061113.jpg'
  })
 
 playdate1 = mitche.events.create ({
@@ -41,3 +53,5 @@ playdate1 = mitche.events.create ({
  location: 'shaw dog park',
  event_img: 'https://cbswashington.files.wordpress.com/2016/04/puppyplaydate.jpg?w=420'
 })
+
+Attendance.create(dog: mata, event: playdate1)

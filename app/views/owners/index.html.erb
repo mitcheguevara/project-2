@@ -2,16 +2,10 @@
  <%= link_to "Create New Owner", new_owner_path %>
 
 <div class="bannerbox">
-
-
-
    <% @owners.each do |h| %>
      <div class="banners">
       <h3><a href="/owners/<%= h.id %>"><%= h.name %></a></h3>
      <%= image_tag h.owner_img %>
      </div>
    <% end %>
-
-
-
 </div>

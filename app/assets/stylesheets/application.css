@@ -17,25 +17,26 @@
 
 body{
   font-family:verdana;
-  background-color: #b39b00;
-  background-image: url("https://www.transparenttextures.com/patterns/black-thread.png");
+  background-color: #800000;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
   align-content: center;
   justify-content: center;
   text-align: center;
 }
- .flexbox-container {
-   display: inline-flex;
-   align-items: center;
- }
 
 .bannerbox {
-  display: flex;
+
+  display: inline-block;
+  flex-direction: row;
   align-items: center;
   margin: auto;
   justify-content: center;
+  padding: auto;
 }
 .banners {
-  display: flex;
-  flex-direction: column;
+  display: inline-grid;
+  flex-direction: row;
   align-items: center;
+  padding: auto;
+
 }

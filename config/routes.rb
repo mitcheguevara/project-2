@@ -4,9 +4,6 @@ Rails.application.routes.draw do
 
   resources :owners do
     resources :dogs
-  end
-  resources :owners do
     resources :events
   end
-
 end

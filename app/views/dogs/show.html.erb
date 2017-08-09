@@ -4,3 +4,6 @@
 <%= link_to "Back to #{@dog.owner.name}", owner_path(@dog.owner_id) %>
 
 <%= link_to "Edit/Delete", edit_owner_dog_path(@dog.owner_id, @dog) %>
+<% @attendances.each do |attend| %>
+<%=attend.event.name%>
+<% end %>

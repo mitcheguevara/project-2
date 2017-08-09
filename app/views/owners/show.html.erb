@@ -17,6 +17,6 @@
  </li>
  <li>
    <% @owner.events.each do |h| %>
-     <li><a href="<%= owner_events_path("#{h.owner_id}", "#{h.id}") %>"><%= h.name %></a></li>
+     <li><a href="<%= owner_event_path(@owner, h) %>"><%= h.name %></a></li>
    <% end %>
  </li>
