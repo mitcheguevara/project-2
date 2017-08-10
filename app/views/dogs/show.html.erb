@@ -1,6 +1,8 @@
 <h2> <%= @dog.name %> </h2>
+ <h3>Breed:<%= @dog.breed %></h3>
+  <h3>Likes Dogs:<%= @dog.likes_dogs %></h3>
  <img src="<%= @dog.dog_img %>">
-
+<h3>Make Some Updates!</h3>
 <%= link_to "Back to #{@dog.owner.name}", owner_path(@dog.owner_id) %>
 
 <%= link_to "Edit/Delete", edit_owner_dog_path(@dog.owner_id, @dog) %>
