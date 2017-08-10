@@ -1,9 +1,18 @@
 <h2> <%= @event.name %> </h2>
-<%= link_to "Back to #{@event.owner.name}", owner_path(@event.owner_id) %>
 
-<%= link_to "Edit/Delete", edit_owner_event_path(@event.owner_id, @event) %>
 
-<p> attendances </p>
-<% @attendances.each do |attend| %>
-<%=attend.dog.name%>
-<% end %>
+<img src="<%= @event.event_img %>"width="460" height="345">
+
+<h2>Are you coming?</h2>
+
+ <%= form_for [@event, @attendances] do |f| %>
+   <%= f.collection_select(:dog_id,@dogs,:id,:name)%>
+   <%= f.text_field :name %>
+
+   <br>
+   <%= f.submit "Yay!" %>
+ <% end %>
+ <h3>Make Some Updates!</h3>
+ <%= link_to "Back to #{@event.owner.name}", owner_path(@event.owner_id) %>
+
+ <%= link_to "Edit/Delete", edit_owner_event_path(@event.owner_id, @event) %>

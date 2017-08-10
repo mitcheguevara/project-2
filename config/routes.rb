@@ -6,4 +6,7 @@ Rails.application.routes.draw do
     resources :dogs
     resources :events
   end
+  resources :events do
+    resources :attendances
+  end
 end

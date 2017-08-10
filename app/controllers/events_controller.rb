@@ -13,11 +13,10 @@ class EventsController < ApplicationController
     redirect_to owner_path(@owner)
   end
 
-
    def show
      @event = Event.find(params[:id])
-     @attendances = @event.attendances
-
+     @attendances = @event.attendances.new
+     @dogs= Dog.all
    end
 
    def edit
