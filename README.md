@@ -1,4 +1,5 @@
 # README
+Puppy Playdates is a playdate app for your dog, it can be modified to be used by dating and for children. At this time you can create profiles (owners), pets and events. It has full CRUD functionality, with the exception of being able to add pups to events. 
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
