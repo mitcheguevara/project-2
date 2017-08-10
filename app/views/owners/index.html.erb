@@ -1,11 +1,11 @@
-<h2>Owner Overview</h2>
- <%= link_to "Create New Owner", new_owner_path %>
+<p> Welcome to Puppy Play Dates, create an owner account and tell us a little about you. In the add new dog section you will be able to add you puppy."
 
-<div class="bannerbox">
+<h2> <%= link_to "Create New Owner", new_owner_path %></h2>
+
+<div class="container">
    <% @owners.each do |h| %>
-     <div class="banners">
-      <h3><a href="/owners/<%= h.id %>"><%= h.name %></a></h3>
-     <%= image_tag h.owner_img %>
+     <div class="flex-grid">
+      <img ><a href="/owners/<%= h.id %>"><%= image_tag h.owner_img %></a></img>
      </div>
    <% end %>
 </div>

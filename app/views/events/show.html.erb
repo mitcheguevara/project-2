@@ -3,7 +3,6 @@
 
 <%= link_to "Edit/Delete", edit_owner_event_path(@event.owner_id, @event) %>
 
-
 <p> attendances </p>
 <% @attendances.each do |attend| %>
 <%=attend.dog.name%>

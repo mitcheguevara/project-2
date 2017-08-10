@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 20170809164912) do
     t.string "name"
     t.string "dogs"
     t.string "event_img"
-    t.bigint "dog_id"
-    t.bigint "event_id"
+    t.bigint "dog_id", null: false
+    t.bigint "event_id", null: false
     t.index ["dog_id"], name: "index_attendances_on_dog_id"
     t.index ["event_id"], name: "index_attendances_on_event_id"
   end

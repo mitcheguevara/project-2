@@ -22,24 +22,13 @@ class DogsController < ApplicationController
      @dog = Dog.find(params[:id])
    end
 
-   def update
-     @owner = Owner.find(params[:owner_id])
-     @dog = Dog.find(params[:id])
-     @dog.update!(dog_params)
-     flash[:notice] = "#{@dog.name} thats a great addition"
-
-     redirect_to owner_dog_path(@owner, @dog)
-   end
-
-
-
    def destroy
      @owner = Owner.find(params[:owner_id])
      @dog = Dog.find(params[:id])
      @dog.destroy!
      flash[:notice] = "#{@dog.name} Off with his head."
 
-     redirect_to owner_dog_path(@owner, @dog)
+     redirect_to owner_path(@owner)
    end
 
  private

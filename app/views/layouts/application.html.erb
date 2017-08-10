@@ -5,18 +5,16 @@
      <%= csrf_meta_tags %>
      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-   </head>
-
+<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
    <body>
      <nav>
        <p class='alert'> <%= flash[:alert] %> </p>
        <p class='notice'> <%= flash[:notice] %> </p>
      </nav>
      <h1>Puppy Play Dates</h1>
-
+     <h2> "A Tired Puppy, Is A Happy Puppy!" </h2>
      <%= yield %>
 <br>
 <br>
-     <footer> "A Tired Puppy, Is A Happy Puppy!" </footer>
    </body>
  </html>
