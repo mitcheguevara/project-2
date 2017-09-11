@@ -12,8 +12,8 @@ Users will have log in accounts, so that only they can interact with thier profi
 Users will be able to plan meet ups with other users and bookmark users they enjoy hanging out with. 
 
 # Planning directory 
-The idea behind this project is that users will be able to have many dogs and set up meet ups with other users. 
+![Bilby Stampede](https://github.com/mitcheguevara/project-2/blob/master/IMG_2867.JPG?raw=true)
 
 
-and ReadMe ASAP. Other stuff  in the feedback as you get to it / want to
+
 
